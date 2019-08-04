@@ -3,7 +3,7 @@
 ![Swift](http://img.shields.io/badge/swift-5.0-brightgreen.svg)
 ![Vapor](http://img.shields.io/badge/vapor-3.0-brightgreen.svg)
 
-[MonoProvider][mono_home] is a Vapor 3 package for the MonoBank API.
+MonoProvider is a Vapor 3 package for the [MonoBank][mono_home] API.
 
 ## How To Use
 In your `Package.swift` file, add the following line:
@@ -29,13 +29,13 @@ try services.register(MonoPersonalProvider())
 An usage example:
 ~~~swift
 static func getPersonalInfo(_ req: Request) throws -> Future<UserInfo> {
-return try req.make(MonoPersonalClient.self).personal.userInfo().flatMap { userInfo in
-let userName = userInfo.name
-// ...
-// Do whatever you need to
-// ...
-return req.future(userInfo)
-}
+  return try req.make(MonoPersonalClient.self).personal.userInfo().flatMap { userInfo in
+    let userName = userInfo.name
+    // ...
+    // Do whatever you need to
+    // ...
+    return req.future(userInfo)
+  }
 }
 ~~~
 
